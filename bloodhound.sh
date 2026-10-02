@@ -12,6 +12,6 @@ echo -e "${RED}3 sudo ./bloodhound-cli install${NC}"
 sudo ./bloodhound-cli install
 echo ""
 echo -e "${RED}Run sudo ./bloodhound-cli up ${NC}"
-echo -e "${RED}visit 127.0.0.1:8080${NC}"
+echo -e "${RED}visit 127.0.0.1:8080/ui/login${NC}"
 echo -e "${RED}username : admin${NC}"
 echo -e "${RED}To check password : sudo ./bloodhound-cli config${NC}"
