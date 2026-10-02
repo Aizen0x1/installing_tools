@@ -7,3 +7,4 @@ wget https://github.com/ropnop/kerbrute/releases/latest/download/kerbrute_linux_
 echo ""
 echo -e "${RED}2 Changing mode {chmod +x kerbrute}${NC}"
 chmod +x kerbrute
+echo -e "${RED}3 version${NC}"
