@@ -15,3 +15,6 @@ echo -e "${RED}Run sudo ./bloodhound-cli up ${NC}"
 echo -e "${RED}visit 127.0.0.1:8080/ui/login${NC}"
 echo -e "${RED}username : admin${NC}"
 echo -e "${RED}To check password : sudo ./bloodhound-cli config${NC}"
+echo -e "${RED}If docker based error run${NC}
+echo -e "${RED}sudo apt update${NC}"
+echo -e "${RED}sudo apt install -y docker.io docker-compose${NC}"
