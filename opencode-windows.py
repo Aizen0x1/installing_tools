@@ -23,8 +23,8 @@ def main():
 
     # Step 2: Install OpenCode AI globally using npm
     run_command(
-        "npm install -g opencode-ai",
-        "Installing OpenCode AI"
+        "npm install -g @opencode/cli",
+        "Installing OpenCode AI Using npm"
     )
 
     print("\nAll installations completed successfully!")
