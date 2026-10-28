@@ -1,4 +1,3 @@
-
 import subprocess
 import sys
 
@@ -8,8 +7,18 @@ def run_command(command, description):
     print(f"{'=' * 50}\n")
 
     try:
-        subprocess.run(command, check=True, shell=True)
-        print(f"\nSUCCESS: {description}")
+        # Removed check=True so we can manually evaluate the exit code
+        result = subprocess.run(command, shell=True) 
+        
+        # 0 = Success
+        # 2316632107 = Winget code for "Already installed / No update available"
+        if result.returncode in (0, 2316632107):
+            if result.returncode == 2316632107:
+                print(f"\nNOTE: Node.js is already installed and up to date.")
+            print(f"SUCCESS: {description}")
+        else:
+            raise subprocess.CalledProcessError(result.returncode, command)
+            
     except subprocess.CalledProcessError as e:
         print(f"\nERROR: {description} failed (exit code {e.returncode})")
         sys.exit(e.returncode or 1)
@@ -23,8 +32,8 @@ def main():
 
     # Step 2: Install OpenCode AI globally using npm
     run_command(
-        "npm uninstall -g @opencode/cli --allow-scripts=@opencode/cli",
-        "Installing OpenCode AI Using npm"
+        "npm install -g opencode-ai",
+        "Installing OpenCode AI"
     )
 
     print("\nAll installations completed successfully!")
